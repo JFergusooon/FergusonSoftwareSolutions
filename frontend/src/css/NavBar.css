@@ -1,0 +1,111 @@
+.navbar {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  background-color: #282c34;
+  padding: 10px 20px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Title */
+.navbar-title {
+  color: white;
+  font-size: 25px;
+  margin-left: 50px;
+}
+
+/* Links (desktop) */
+.nav-links {
+  margin-left: auto;
+  display: flex;
+  gap: 15px;
+}
+
+/* Hamburger button */
+.hamburger {
+  display: none;
+  color: white;
+  font-size: 28px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    z-index: 1001;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #282c34;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+
+    display: none;
+    z-index: 1000;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+}
+
+
+.navBarDiv {
+  height: '40px';
+  width: '100%';
+  display: 'flex';
+  justify-content: 'center';
+  background-color: '#fff';
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .navBarButton {
+    font-size: 24px;
+  }
+}
+
+
+.navBarButton {
+  margin-bottom: 3px;
+  padding: 10px 10px;
+  height: 45px;
+  background-color: #282c34;
+  text-decoration: none;
+  border-radius: 2px;
+  width: 24%;
+  color: white;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.navBarButton:hover {
+  color: #e24a03;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

@@ -1,0 +1,79 @@
+.aboutMeSection {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.horizontal-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.work-experience {
+  margin-top: 20px;
+  background: #ad5503;
+  border: 1px solid black;
+  margin-right: 20px;
+  padding: 10px;
+  width: 35%;
+  height: 400px;
+  border-radius: 50px;
+}
+
+.education {
+  margin-left: 20px;
+  background: rgb(117, 39, 39);
+  border: 1px solid black;
+  padding: 10px;
+  gap: 5px;
+  border-radius: 50px;
+}
+
+.skills {
+  margin-top: 20px;
+  margin-left: 20px;
+  background: rgb(51, 51, 51);
+  border: 1px solid black;
+  padding: 10px;
+  height: 253px;
+  border-radius: 50px;
+}
+
+.selfie-left {
+  width: 35%; /* one-third of row */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 710px;
+  background-color: orange;
+  border: solid 2px white;
+  border-radius: 50px;
+}
+
+.selfie-middle {
+  width: 10%;
+}
+
+.selfie-row {
+  background: #353131;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+
+  padding: 20px;
+  background: #443f3d;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.selfie-image {
+  border-radius: 50px;
+  border: 1px solid black;
+}
