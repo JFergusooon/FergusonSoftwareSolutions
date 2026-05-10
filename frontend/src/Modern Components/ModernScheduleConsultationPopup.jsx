@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 
-const Modern_EditApplicationPopup = ({ closePopup }) => {
+const ModernScheduleConsultationPopup = ({ closePopup }) => {
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -292,5 +292,5 @@ const primaryButtonStyle = (disabled) => ({
     cursor: disabled ? 'not-allowed' : 'pointer'
 });
 
-export default Modern_EditApplicationPopup;
+export default ModernScheduleConsultationPopup;
 

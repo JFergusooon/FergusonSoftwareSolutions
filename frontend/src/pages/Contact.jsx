@@ -4,7 +4,7 @@ import NavBar from '../components/navBar';
 import '../css/Contact.css';
 import ModernContactForm from '../Modern Components/ModernContactComponent';
 import ModernFooter from '../Modern Components/ModernFooterComponent';
-import ModernEditApplicationPopup from '../Modern Components/Modern_EditApplicationPopup';
+import ModernScheduleConsultationPopup from '../Modern Components/ModernScheduleConsultationPopup';
 
 function ContactPage() {
   const [isConsultationPopupOpen, setIsConsultationPopupOpen] = useState(false);
@@ -231,7 +231,7 @@ function ContactPage() {
     </div>
 
     {isConsultationPopupOpen && (
-      <ModernEditApplicationPopup closePopup={() => setIsConsultationPopupOpen(false)} />
+      <ModernScheduleConsultationPopup closePopup={() => setIsConsultationPopupOpen(false)} />
     )}
 
     <ModernFooter />
