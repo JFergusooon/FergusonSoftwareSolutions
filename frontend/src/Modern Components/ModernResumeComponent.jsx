@@ -15,8 +15,8 @@ export default function ModernResume() {
   };
 
   const skills = [
-    "Programming Languages: JavaScript, Python, Java, C++, Swift",
-    "Web Development: React, Node.js, HTML, CSS",
+    "Languages: JavaScript, Python, Java",
+    "Web Development: React, Node.js, Typescript",
     "Mobile Development: SwiftUI, React Native",
     "Database Management: MySQL, MongoDB",
     "Version Control: Git, GitHub"
@@ -24,22 +24,26 @@ export default function ModernResume() {
 
   const experience = [
     {
-      title: "Software Engineer in Test",
-      company: "Cox Automotive",
-      period: "Sep 2022 - Aug 2025",
-      location: "Draper, Utah"
+      company: "LiveView Technologies",
+      location: "American Fork, Utah, Hybrid",
+      roles: [
+        { title: "Software Development Engineer in Test", type: "Full-time", period: "Apr 2026 - Present" }
+      ]
     },
     {
-      title: "QA Engineer Intern",
-      company: "Cox Automotive",
-      period: "Jan 2022 - Aug 2022",
-      location: "Draper, Utah"
+      company: "Cox Automotive Inc.",
+      location: "Salt Lake City, Utah",
+      totalPeriod: "Jan 2022 - Aug 2025",
+      roles: [
+        { title: "Software Engineer In Test", type: "Full-time", period: "Sep 2022 - Aug 2025" },
+        { title: "QA Engineer", type: "Internship", period: "Jan 2022 - Sep 2022" }
+      ]
     }
   ];
 
   return (
-    <div className="h-screen bg-gray-700 flex items-center justify-center p-6 overflow-hidden">
-      <div className="w-full max-w-7xl h-full max-h-[900px] bg-gray-600 rounded-3xl shadow-2xl flex">
+    <div className="bg-gray-700 flex items-center justify-center p-6">
+      <div className="w-full max-w-7xl bg-gray-600 rounded-3xl shadow-2xl flex">
         {/* Left Side - Photo */}
         <div className="w-2/5 p-8 flex items-center justify-center">
           <div className="relative">
@@ -70,15 +74,55 @@ export default function ModernResume() {
             
             <div className="flex gap-4 flex-1">
               {/* Work Experience - Left */}
-              <div className="w-1/2 bg-gradient-to-br from-orange-600 to-orange-700 rounded-3xl p-6 flex flex-col" style={{minHeight: "540px", maxHeight: "540px"}}>
+              <div className="w-1/2 bg-gradient-to-br from-orange-600 to-orange-700 rounded-3xl p-6 flex flex-col text-left h-fit">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Work Experience</h3>
-                <div className="space-y-4 flex-1">
+                <div className="space-y-5">
                   {experience.map((job, idx) => (
-                    <div key={idx} className="relative pl-4">
-                      <div className="absolute left-0 top-2 w-2 h-2 bg-gray-900 rounded-full"></div>
-                      <h4 className="text-lg font-bold text-white">{job.title}</h4>
-                      <p className="text-sm text-gray-100">{job.company} - {job.period}</p>
-                      <p className="text-sm text-gray-100">{job.location}</p>
+                    <div key={idx}>
+                      {job.roles.length === 1 ? (
+                        /* Single role — matches multi-role layout */
+                        <div>
+                          <h4 className="text-base font-bold text-white leading-tight">{job.company}</h4>
+                          <p className="text-sm text-gray-100">{job.roles[0].period}</p>
+                          <p className="text-sm text-gray-200 mb-2">{job.location}</p>
+                          <div className="ml-2 flex gap-3">
+                            <div className="flex flex-col items-center">
+                              <div className="w-2 h-2 rounded-full bg-gray-900 mt-1.5 shrink-0"></div>
+                            </div>
+                            <div>
+                              <p className="text-sm font-semibold text-white">{job.roles[0].title}</p>
+                              <p className="text-xs text-gray-100">{job.roles[0].type}</p>
+                              <p className="text-xs text-gray-100">{job.roles[0].period}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        /* Multiple roles — company header + vertical bar */
+                        <div>
+                          <h4 className="text-base font-bold text-white leading-tight">{job.company}</h4>
+                          <p className="text-sm text-gray-100">{job.totalPeriod}</p>
+                          <p className="text-sm text-gray-200 mb-2">{job.location}</p>
+                          <div className="ml-2">
+                            {job.roles.map((role, rIdx) => (
+                              <div key={rIdx} className="flex gap-3">
+                                {/* Bar + dot column */}
+                                <div className="flex flex-col items-center">
+                                  <div className="w-2 h-2 rounded-full bg-gray-900 mt-1.5 shrink-0"></div>
+                                  {rIdx < job.roles.length - 1 && (
+                                    <div className="w-0.5 bg-gray-900 flex-1 my-0.5"></div>
+                                  )}
+                                </div>
+                                {/* Role text */}
+                                <div className="pb-[10px]">
+                                  <p className="text-sm font-semibold text-white">{role.title}</p>
+                                  <p className="text-xs text-gray-100">{role.type}</p>
+                                  <p className="text-xs text-gray-100">{role.period}</p>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -87,7 +131,7 @@ export default function ModernResume() {
               {/* Right Column - Education & Skills */}
               <div className="w-1/2 flex flex-col gap-4">
                 {/* Education */}
-                <div className="bg-gradient-to-br from-red-900 to-red-950 rounded-3xl p-6 flex-1">
+                <div className="bg-gradient-to-br from-red-900 to-red-950 rounded-3xl p-6 h-fit">
                   <h3 className="text-2xl font-bold text-gray-100 mb-3">Education</h3>
                   <div className="space-y-1">
                     <p className="text-base font-semibold text-gray-100">{education.school}</p>
@@ -98,9 +142,9 @@ export default function ModernResume() {
                 </div>
 
                 {/* Skills */}
-                <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-3xl p-6 flex-1">
+                <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-3xl p-6 h-fit">
                   <h3 className="text-2xl font-bold text-gray-100 mb-3">Skills</h3>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1 text-left">
                     {skills.map((skill, idx) => (
                       <li key={idx} className="text-sm text-gray-200 leading-relaxed">
                         • {skill}

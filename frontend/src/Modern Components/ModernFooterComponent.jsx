@@ -6,7 +6,7 @@ export default function ModernFooter() {
     address: {
       //line1: "Ferguson Software Solutions",
       line1: "",
-      line2: "Dryden, VA",
+      line2: "Salt Lake City, UT",
       line3: "United States"
     },
     phone: "385-499-1578",
@@ -21,7 +21,7 @@ export default function ModernFooter() {
   return (
     <footer className="bg-gray-700 border-t-8 border-gray-900">
       {/* Main Footer Content */}
-      <div className="bg-gradient-to-br from-slate-400 to-slate-500 py-3 px-4 items-center text-center md:text-left">
+      <div className="bg-gradient-to-br from-blue-600 to-purple-700 py-3 px-4 items-center text-center md:text-left">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-center items-center"
                 style={{ padding: '0px', borderRadius: '20px', height: '220px' }}>
